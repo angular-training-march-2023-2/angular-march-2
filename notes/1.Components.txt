@@ -1,0 +1,18 @@
+a component consists of 4 files
+    - display.component.ts (mandatory)
+    - display.component.html
+    - display.component.css
+    - display.component.spec.ts
+
+2 ways to create component files
+1st way    
+    - manually create all the files 
+    - make an entry of the component in app.module.ts file
+    - do not forget to use the selector of the component
+2nd way
+    - use the command
+        ng generate component display
+        (or)
+        ng g c display
+    - the command itself makes an entry in app.module.ts file
+    - do not forget to use the selector of the component

@@ -1,0 +1,9 @@
+<div>
+    <h2>Display Component</h2>
+    <h3>Movie name displayed directly on the template:</h3> <p>Harry Potter and the Order of Phoenix</p>
+    <h3>Movie name displayed by rendering a variable from the component using string interpolation:</h3> <p>{{ myMovie }}</p>
+    <!-- <h3>Movie name displayed by rendering a variable from the component:</h3> <p><input type="text" value="{{ myMovie }}"></p> -->
+    <h3>Movie name displayed by rendering a variable from the component using property binding []:</h3> <p><input type="text" [value]="myMovie"></p>
+    <h3>Movie name changed by clicking the button - using event binding ()</h3>
+    <button type="button" (click)="changeMovie()">Click this button to change the movie name </button>{{ myMovie }}
+</div>
