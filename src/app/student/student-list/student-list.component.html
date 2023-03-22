@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Student List Component</h2>
+    <table class="table table-striped">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th>ID</th>
+                <th>PHOTO</th>
+                <th>NAME</th>
+                <th>TOTAL MARKS</th>
+                <th>PERCENTAGE</th>
+                <th>DOB</th>
+                <th>GENDER</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stud of allStudents">
+                <td>{{ stud.id }}</td>
+                <td><img [src]="stud.studentPhoto" height="60px" width="80px"></td>
+                <td>{{ stud.studentName }}</td>
+                <td>{{ stud.studentTotalMarks }}</td>
+                <td></td>
+                <td>{{ stud.studentDOB }}</td>
+                <td>{{ stud.studentGender }}</td>
+                <td><button type="button" class="btn btn-primary">Edit</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="removeStudent(stud)">Remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

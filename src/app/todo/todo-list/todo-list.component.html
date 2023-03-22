@@ -1,0 +1,12 @@
+<div class="container">
+    <h2>TODO Component</h2>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let todo of allToDo">
+            <app-todo-item-child [receivedTodo]="todo" (deleteEvent)="removeTodo($event)"></app-todo-item-child>
+            <!-- {{ todo }}
+            <button type="button" class="btn btn-danger" (click)="removeTodo(todo)">
+                <img src="../../assets/images/icons8-delete-trash-50.png" width="30px" height="30px">
+            </button> -->
+        </li>
+    </ul>
+</div>
