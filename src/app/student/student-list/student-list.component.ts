@@ -8,6 +8,10 @@ import { Student } from '../student.model';
 })
 export class StudentListComponent implements OnInit {
 
+  filterData: string = '';
+
+  emptyData: string = 'Student Data is empty!';
+
   allStudents: Student[] = [
     {
       id: 101,
@@ -49,5 +53,21 @@ export class StudentListComponent implements OnInit {
 
   removeStudent(student: Student){
     this.allStudents.splice(this.allStudents.indexOf(student),1);
+  }
+
+  isStudentDataEmpty(): boolean{
+    return (this.allStudents.length==0);
+  }
+
+  addTestStudent(){
+    let testStudent: Student = {
+      id: 0,
+      studentName: 'Test',
+      studentPhoto: 'https://plus.unsplash.com/premium_photo-1658506911229-3a57ef5fc84c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+      studentTotalMarks: 427,
+      studentDOB: new Date(2,2,1991),
+      studentGender: 'Male'
+    }
+    this.allStudents.push(testStudent);
   }
 }

@@ -12,6 +12,10 @@ import { ColorsComponent } from './colors/colors.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { TodoItemChildComponent } from './todo/todo-list/todo-item-child/todo-item-child.component';
+import { HoverHighlightDirective } from './custom-directives/hover-highlight.directive';
+import { NumberDisplayComponent } from './number-display/number-display.component';
+import { ExpoPipe } from './custom-pipes/expo.pipe';
+import { FilterListPipe } from './custom-pipes/filter-list.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,12 @@ import { TodoItemChildComponent } from './todo/todo-list/todo-item-child/todo-it
     ColorsComponent,
     StudentListComponent,
     TodoListComponent,
-    TodoItemChildComponent
+    TodoItemChildComponent,
+    HoverHighlightDirective,
+    NumberDisplayComponent,
+    ExpoPipe,
+    FilterListPipe,
+   
   ],
   imports: [
     BrowserModule,

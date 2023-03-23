@@ -1,5 +1,10 @@
 <div class="container">
     <h2>Student List Component</h2>
+    <div>
+        <input type="text" [(ngModel)]="filterData" class="form-control" placeholder="Search By Gender">
+    </div>
+
+    <h6 class="errorMsg text-danger" *ngIf="isStudentDataEmpty()">{{ emptyData }}</h6>
     <table class="table table-striped">
         <thead class="bg-dark text-white">
             <tr>
@@ -15,17 +20,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let stud of allStudents">
+            <!-- <tr *ngFor="let stud of allStudents" [ngClass]="{'errorMsg':stud.studentTotalMarks<250, 'bg-success':stud.studentTotalMarks>=250}"> -->
+                <tr appHoverHighlight *ngFor="let stud of allStudents | filterList: filterData">    
                 <td>{{ stud.id }}</td>
                 <td><img [src]="stud.studentPhoto" height="60px" width="80px"></td>
-                <td>{{ stud.studentName }}</td>
-                <td>{{ stud.studentTotalMarks }}</td>
-                <td></td>
-                <td>{{ stud.studentDOB }}</td>
+                <td>{{ stud.studentName | uppercase }}</td>
+                <td>{{ stud.studentTotalMarks | currency:'USD':'code'}}</td>
+                <!-- <td>{{ stud.studentTotalMarks / 500 * 100 | number:'1.2'}}%</td> -->
+                <td>{{ stud.studentTotalMarks / 500 | percent}}</td>
+                <td>{{ stud.studentDOB | date:'short' }}</td>
                 <td>{{ stud.studentGender }}</td>
                 <td><button type="button" class="btn btn-primary">Edit</button></td>
                 <td><button type="button" class="btn btn-danger" (click)="removeStudent(stud)">Remove</button></td>
             </tr>
         </tbody>
     </table>
+    <button type="button" class="btn btn-success" (click)="addTestStudent()">Add Test Student</button>
 </div>
