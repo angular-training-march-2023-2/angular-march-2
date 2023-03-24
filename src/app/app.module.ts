@@ -16,6 +16,10 @@ import { HoverHighlightDirective } from './custom-directives/hover-highlight.dir
 import { NumberDisplayComponent } from './number-display/number-display.component';
 import { ExpoPipe } from './custom-pipes/expo.pipe';
 import { FilterListPipe } from './custom-pipes/filter-list.pipe';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { LifecycleParentComponent } from './lifecycle-parent/lifecycle-parent.component';
+import { LifecycleChildComponent } from './lifecycle-parent/lifecycle-child/lifecycle-child.component';
+import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import { FilterListPipe } from './custom-pipes/filter-list.pipe';
     NumberDisplayComponent,
     ExpoPipe,
     FilterListPipe,
+    ProductListComponent,
+    LifecycleParentComponent,
+    LifecycleChildComponent,
+    ObservableDemoComponent
    
   ],
   imports: [
