@@ -20,6 +20,9 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { LifecycleParentComponent } from './lifecycle-parent/lifecycle-parent.component';
 import { LifecycleChildComponent } from './lifecycle-parent/lifecycle-child/lifecycle-child.component';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
+import { WeatherComponent } from './weather/weather.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StudentListHttpComponent } from './student/student-list-http/student-list-http.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +41,17 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
     ProductListComponent,
     LifecycleParentComponent,
     LifecycleChildComponent,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    WeatherComponent,
+    StudentListHttpComponent
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

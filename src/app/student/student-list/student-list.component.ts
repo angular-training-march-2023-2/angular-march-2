@@ -65,6 +65,7 @@ export class StudentListComponent implements OnInit {
 
   ngOnInit(): void {
     this.allStudents = this.studentService.getAllStudents();
+    //console.log(JSON.stringify(this.allStudents));
   }
 
   removeStudent(student: Student){

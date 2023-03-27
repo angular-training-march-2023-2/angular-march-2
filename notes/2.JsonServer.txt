@@ -1,0 +1,25 @@
+1. install json server in your angular appln.
+       npm install json-server
+   this will install json server in our angular project and a dependecy entry is made in package.json
+2. start the json server    
+    json-server --watch db.json
+   this. will create a db.json file and some sample json data will be present
+3. erase the content of db.json file and place the student array in json format
+4. now jason server will automatically create the endpoints based on the data in db.json file
+
+get request for all students
+http://localhost:3000/students
+
+get request for a student
+http://localhost:3000/students/102
+
+delete request
+http://localhost:3000/students/103
+
+put request with request body
+http://localhost:3000/students/103
+
+post request with request body
+http://localhost:3000/students
+
+5. next from angular appln, using HttpClient API lets consume these endpoints
