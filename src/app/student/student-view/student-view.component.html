@@ -1,0 +1,14 @@
+<div class="container m-5 p-5">
+    <div class="card" style="width:400px">
+        <img class="card-img-top" [src]="fetchedStudent.studentPhoto" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">Name: {{ fetchedStudent.studentName }}</h4>
+          <p class="card-text">Marks: {{ fetchedStudent.studentTotalMarks }}</p>
+          <p class="card-text">DOB: {{ fetchedStudent.studentDOB }}</p>
+          <p class="card-text">Gender: {{ fetchedStudent.studentGender }}</p>
+        </div>
+        <div class="card-footer bg-warning">
+            <button type="button" class="btn btn-primary" (click)="back()">Back</button>
+        </div>
+    </div>
+</div>

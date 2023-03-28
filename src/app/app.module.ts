@@ -23,6 +23,9 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
 import { WeatherComponent } from './weather/weather.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentListHttpComponent } from './student/student-list-http/student-list-http.component';
+import { HeaderComponent } from './header/header.component';
+import { RouteNotFoundComponent } from './route-not-found/route-not-found.component';
+import { StudentViewComponent } from './student/student-view/student-view.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { StudentListHttpComponent } from './student/student-list-http/student-li
     LifecycleChildComponent,
     ObservableDemoComponent,
     WeatherComponent,
-    StudentListHttpComponent
+    StudentListHttpComponent,
+    HeaderComponent,
+    RouteNotFoundComponent,
+    StudentViewComponent
    
   ],
   imports: [

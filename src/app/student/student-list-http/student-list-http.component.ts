@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StudentHttpService } from 'src/app/services/student-http.service';
 import { Student } from '../student.model';
 
@@ -15,7 +16,7 @@ export class StudentListHttpComponent implements OnInit {
   errorData: string = '';
   allStudents: Student[] = [];
   
-  constructor(private studentHttpService: StudentHttpService) {
+  constructor(private studentHttpService: StudentHttpService, private router: Router) {
   }
 
   loadData(){
@@ -27,6 +28,16 @@ export class StudentListHttpComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();  
+  }
+
+  viewStudent(stud: Student){
+    // here we should navigate to student-view
+    // to navigate we need an in-built API called Router
+    // so let us inject Router in the constructor
+
+    this.router.navigate(['student-view', stud.id]); 
+
+    // here stud.id is passed as a route parameter
   }
 
   removeStudent(student: Student){

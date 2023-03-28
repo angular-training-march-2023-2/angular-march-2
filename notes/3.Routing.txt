@@ -1,0 +1,13 @@
+steps to work with routing
+---------------------------
+can be done in 2 ways
+
+1. using hyperlinks with routerLink ( DONT USE href)
+
+2. using Router API
+
+steps
+------
+1. every component that u want to route to should have a route path configured in app-routing.module.ts file
+    pls note  that u can also configure route paths in app.module.ts
+2. use the <router-outlet> tag
