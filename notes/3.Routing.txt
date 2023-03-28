@@ -4,7 +4,7 @@ can be done in 2 ways
 
 1. using hyperlinks with routerLink ( DONT USE href)
 
-2. using Router API
+2. using Router API ( adding routing programatically)
 
 steps
 ------
