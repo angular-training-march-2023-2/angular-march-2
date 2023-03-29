@@ -1,0 +1,60 @@
+<div class="container">
+    <!-- <form #myForm (ngSubmit)="addStudent(myForm)"> -->
+    <form #myForm="ngForm" (ngSubmit)="addStudent(myForm)">
+        <div class="card m-5">
+            <div class="card-header bg-success text-white">
+                <h4>ADD STUDENT</h4>
+            </div>
+
+            <div class="card-body">
+                <div class="form-group m-2">
+                    <label for="studName">Student Name:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="studName" 
+                        ngModel
+                        name="sName" >
+                </div>
+                <div class="form-group m-2">
+                    <label for="studPhoto">Student Image Url:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="studPhoto" 
+                        ngModel
+                        name="sPhoto">
+                </div>
+                <div class="form-group m-2">
+                    <label for="studMark">Student Total Marks:</label>
+                    <select class="form-control" id="studMark" ngModel name="sMark">
+                        <option>--select--</option>
+                        <option *ngFor="let mark of allMark">{{ mark }}</option>
+                    </select>
+                </div>
+                <div class="form-group m-2">
+                    <label for="studDOB">Student DOB:</label>
+                    <input 
+                        type="date" 
+                        class="form-control" 
+                        id="studDOB" 
+                        ngModel
+                        name="sDOB">
+                </div>
+                
+                <div class="form-check-online m-2">
+                    Student Gender:
+                    <span *ngFor="let gen of allGender">
+                        <label class="form-check-label m-1">
+                            <input type="radio" class="form-check-input" ngModel name="{{ gen.gender}}">
+                            {{ gen.gender }}
+                        </label>
+                    </span>
+                </div>
+            </div>
+            <div class="card-footer bg-success">
+                <button type="submit" class="btn btn-light text-success">Add</button>
+            </div>
+        </div>
+    </form>
+</div>

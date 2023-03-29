@@ -50,6 +50,10 @@ export class StudentListHttpComponent implements OnInit {
     return (this.allStudents.length==0);
   }
 
+  addStudent(){
+    this.router.navigate(['student-add-http']);
+  }
+
   addTestStudent(){
     // let testStudent: Student = {
     //   id: 0,

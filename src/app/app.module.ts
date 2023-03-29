@@ -26,6 +26,7 @@ import { StudentListHttpComponent } from './student/student-list-http/student-li
 import { HeaderComponent } from './header/header.component';
 import { RouteNotFoundComponent } from './route-not-found/route-not-found.component';
 import { StudentViewComponent } from './student/student-view/student-view.component';
+import { StudentAddHttpComponent } from './student/student-add-http/student-add-http.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { StudentViewComponent } from './student/student-view/student-view.compon
     StudentListHttpComponent,
     HeaderComponent,
     RouteNotFoundComponent,
-    StudentViewComponent
+    StudentViewComponent,
+    StudentAddHttpComponent
    
   ],
   imports: [

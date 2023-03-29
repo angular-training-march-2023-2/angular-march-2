@@ -6,6 +6,7 @@
 
     <h6 class="errorMsg text-danger" *ngIf="isStudentDataEmpty() && errorData==''">{{ emptyData }}</h6>
     <h6 class="errorMsg text-danger">{{ errorData }}</h6>
+    <button type="button" class="btn btn-success" (click)="addStudent()">Add Student</button>
     <table class="table table-striped">
         <thead class="bg-dark text-white">
             <tr>

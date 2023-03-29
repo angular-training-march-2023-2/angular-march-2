@@ -28,7 +28,7 @@ export class StudentHttpService {
   //http://localhost:3000/students/102
   deleteStudent(studId: number): Observable<void>{
     //return this.httpClient.delete<void>(this.baseUrl + '/' + studId);
-    return this.httpClient.delete<void>(`${this.baseUrl}/${studId}`); // here we are using template varibales, 
+    return this.httpClient.delete<void>(`${this.baseUrl}/${studId}`); // here we are using template string, 
                                                                         //avaible from ES6 version of JS
 
   }
