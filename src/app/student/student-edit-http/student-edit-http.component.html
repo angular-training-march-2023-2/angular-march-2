@@ -1,36 +1,32 @@
 <div class="container">
-    <!-- <form #myForm (ngSubmit)="addStudent(myForm)"> -->
-    <form #myForm="ngForm" (ngSubmit)="addStudent(myForm)">
+    <form (ngSubmit)="editStudent()" [formGroup]="myReactiveForm">
         <div class="card m-5">
-            <div class="card-header bg-success text-white">
-                <h4>ADD STUDENT</h4>
+            <div class="card-header bg-primary text-white">
+                <h4>EDIT STUDENT</h4>
             </div>
 
             <div class="card-body">
-                <div ngModelGroup="personalData">
+                <div formGroupName="personalData">
                     <div class="form-group m-2">
                         <label for="studName">Student Name:</label>
                         <input 
                             type="text" 
                             class="form-control" 
-                            id="studName" 
-                            ngModel
-                            name="sName" >
+                            id="studName"
+                            formControlName="rsName">
                     </div>
                     <div class="form-group m-2">
                         <label for="studPhoto">Student Image Url:</label>
                         <input 
                             type="text" 
                             class="form-control" 
-                            id="studPhoto" 
-                            ngModel
-                            name="sPhoto">
+                            id="studPhoto"
+                            formControlName="rsPhoto">
                     </div>
                 </div>
-                
                 <div class="form-group m-2">
                     <label for="studMark">Student Total Marks:</label>
-                    <select class="form-control" id="studMark" ngModel name="sMark">
+                    <select class="form-control" id="studMark" formControlName="rsMark">
                         <option>--select--</option>
                         <option *ngFor="let mark of allMark">{{ mark }}</option>
                     </select>
@@ -38,25 +34,24 @@
                 <div class="form-group m-2">
                     <label for="studDOB">Student DOB:</label>
                     <input 
-                        type="date" 
+                        type="date-local" 
                         class="form-control" 
-                        id="studDOB" 
-                        ngModel
-                        name="sDOB">
+                        id="studDOB"
+                        formControlName="rsDob">
                 </div>
                 
                 <div class="form-check-online m-2">
                     Student Gender:
                     <span *ngFor="let gen of allGender">
                         <label class="form-check-label m-1">
-                            <input type="radio" class="form-check-input" ngModel name="sGender" [value]="gen.gender">
+                            <input type="radio" class="form-check-input" [value]="gen.gender" formControlName="rsGender">
                             {{ gen.gender }}
                         </label>
                     </span>
                 </div>
             </div>
-            <div class="card-footer bg-success">
-                <button type="submit" class="btn btn-light text-success">Add</button>
+            <div class="card-footer bg-primary">
+                <button type="submit" class="btn btn-light text-primary">Update</button>
             </div>
         </div>
     </form>

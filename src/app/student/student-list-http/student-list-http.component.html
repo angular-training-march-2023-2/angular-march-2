@@ -35,7 +35,7 @@
                 <td>{{ stud.studentDOB | date:'short' }}</td>
                 <td>{{ stud.studentGender }}</td>
                 <td><button type="button" class="btn btn-warning" (click)="viewStudent(stud)">View</button></td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
+                <td><button type="button" class="btn btn-primary" (click)="editStudent(stud)">Edit</button></td>
                 <td><button type="button" class="btn btn-danger" (click)="removeStudent(stud)">Remove</button></td>
             </tr>
         </tbody>

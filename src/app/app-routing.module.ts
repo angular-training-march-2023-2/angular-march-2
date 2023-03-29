@@ -5,6 +5,7 @@ import { CounterComponent } from './counter/counter.component';
 import { DisplayComponent } from './display/display.component';
 import { RouteNotFoundComponent } from './route-not-found/route-not-found.component';
 import { StudentAddHttpComponent } from './student/student-add-http/student-add-http.component';
+import { StudentEditHttpComponent } from './student/student-edit-http/student-edit-http.component';
 import { StudentListHttpComponent } from './student/student-list-http/student-list-http.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { StudentViewComponent } from './student/student-view/student-view.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'student-list', component: StudentListComponent},
   {path: 'student-list-http', component: StudentListHttpComponent},
   {path: 'student-add-http', component: StudentAddHttpComponent},
+  {path: 'student-edit-http/:sid', component: StudentEditHttpComponent},
   {path: 'student-view/:sid', component: StudentViewComponent},  // http://localhost:5555/student-view/102
   {path: 'weather', component: WeatherComponent},
   {path: '**', component: RouteNotFoundComponent},

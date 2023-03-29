@@ -40,6 +40,9 @@ export class StudentListHttpComponent implements OnInit {
     // here stud.id is passed as a route parameter
   }
 
+  editStudent(stud: Student){
+    this.router.navigate(['student-edit-http', stud.id])
+  }
   removeStudent(student: Student){
     this.studentHttpService.deleteStudent(student.id).subscribe({
       next: (response)=>this.loadData()

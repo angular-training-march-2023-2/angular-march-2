@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DisplayComponent } from './display/display.component';
 import { CounterComponent } from './counter/counter.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToggleMessageComponent } from './toggle-message/toggle-message.component';
 import { ColorsComponent } from './colors/colors.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
@@ -27,6 +27,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouteNotFoundComponent } from './route-not-found/route-not-found.component';
 import { StudentViewComponent } from './student/student-view/student-view.component';
 import { StudentAddHttpComponent } from './student/student-add-http/student-add-http.component';
+import { StudentEditHttpComponent } from './student/student-edit-http/student-edit-http.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { StudentAddHttpComponent } from './student/student-add-http/student-add-
     HeaderComponent,
     RouteNotFoundComponent,
     StudentViewComponent,
-    StudentAddHttpComponent
+    StudentAddHttpComponent,
+    StudentEditHttpComponent
    
   ],
   imports: [
@@ -59,7 +61,8 @@ import { StudentAddHttpComponent } from './student/student-add-http/student-add-
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
