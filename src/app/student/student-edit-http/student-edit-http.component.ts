@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentHttpService } from 'src/app/services/student-http.service';
 import { Student } from '../student.model';
@@ -11,6 +11,7 @@ import { Student } from '../student.model';
 })
 export class StudentEditHttpComponent implements OnInit {
 
+  borderStatus: string = '';
   fetchedStudent: Student = {
     id: 0,
     studentPhoto: '',
@@ -23,12 +24,12 @@ export class StudentEditHttpComponent implements OnInit {
   myReactiveForm: FormGroup = new FormGroup({
     rsId: new FormControl(),
     personalData: new FormGroup({
-      rsName: new FormControl(),
-      rsPhoto: new FormControl()
+      rsName: new FormControl('', [Validators.required, this.validText]),
+      rsPhoto: new FormControl('', Validators.required)
     }),
-    rsMark: new FormControl(),
-    rsDob: new FormControl(),
-    rsGender: new FormControl()
+    rsMark: new FormControl('', Validators.required),
+    rsDob: new FormControl('', Validators.required),
+    rsGender: new FormControl('', Validators.required)
   });
 
   allMark: number[] = [100, 200, 300, 400, 500];
@@ -72,6 +73,26 @@ export class StudentEditHttpComponent implements OnInit {
         error: (err)=>{ console.log(err) }
       })
     }
+
+
+    // here we can sucbscribe to the values changes made to a a FormControl object
+    // this.myReactiveForm.get('personalData.rsName')?.valueChanges.subscribe({
+    //   next: (value)=>console.log(value)
+    // })
+
+    // this.myReactiveForm.get('personalData.rsName')?.statusChanges.subscribe({
+    //   next: (value)=>console.log(value)
+    // })
+
+    // this.myReactiveForm.valueChanges.subscribe({
+    //   next: (value)=>console.log(value)
+    // })
+
+    this.myReactiveForm.statusChanges.subscribe({
+      next: (value)=>{
+        console.log(value);
+        this.borderStatus = value;
+    }})
   }
 
   editStudent(){
@@ -83,16 +104,35 @@ export class StudentEditHttpComponent implements OnInit {
     this.fetchedStudent.studentGender = this.myReactiveForm.value.rsGender;
 
     // nbow send the fetchedStudet object to the service to be updated in the backend appln
-    this.studentHttpService.updateStudent(this.fetchedStudent).subscribe({
-      next: (response)=>{
-        console.log(response);
-        // now we can navigate to student-list-http
-        this.router.navigate(['student-list-http']);
-      },
-      error: (err)=>{
-        console.log(err)
-      }
-    })
+    // this.studentHttpService.updateStudent(this.fetchedStudent).subscribe({
+    //   next: (response)=>{
+    //     console.log(response);
+    //     // now we can navigate to student-list-http
+    //     this.router.navigate(['student-list-http']);
+    //   },
+    //   error: (err)=>{
+    //     console.log(err)
+    //   }
+    // })
 
+  }
+
+  addValidatorToName(){
+    // here we are going o add validators to rsName FormControl object
+    this.myReactiveForm.get('personalData.rsName')?.addValidators(Validators.minLength(2));
+    // whenever validators are manipulated, we have to call updateValueAndValidity funtion
+    this.myReactiveForm.get('personalData.rsName')?.updateValueAndValidity();
+
+  }
+
+  // custom validator
+  // after defining the custom validator, simple use this funnctin in your validator array of FormControl object
+  validText(control: FormControl){
+    if(control.value!=null && !/^[A-Za-z\s]*$/.test(control.value)){
+      // if we reache here means the pattern does not match
+      // so we should return a error message in an object format
+      return { invalidText: true }
+    }
+    return null;
   }
 }

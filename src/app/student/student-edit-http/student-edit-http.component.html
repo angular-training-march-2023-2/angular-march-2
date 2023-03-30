@@ -1,6 +1,8 @@
 <div class="container">
-    <form (ngSubmit)="editStudent()" [formGroup]="myReactiveForm">
-        <div class="card m-5">
+    <form 
+        (ngSubmit)="editStudent()" 
+        [formGroup]="myReactiveForm">
+        <div class="card m-5" [ngClass]="{'border border-success':borderStatus=='VALID', 'border border-danger':borderStatus=='INVALID'}">
             <div class="card-header bg-primary text-white">
                 <h4>EDIT STUDENT</h4>
             </div>
@@ -14,6 +16,15 @@
                             class="form-control" 
                             id="studName"
                             formControlName="rsName">
+                        <div *ngIf="myReactiveForm.get('personalData.rsName')?.errors?.['required']" class="small text-danger">
+                            Student Name is Required!!
+                        </div>
+                        <div *ngIf="myReactiveForm.get('personalData.rsName')?.errors?.['minlength']" class="small text-danger">
+                            Student Name should be atleast 2 characters!!
+                        </div>
+                        <div *ngIf="myReactiveForm.get('personalData.rsName')?.errors?.['invalidText']" class="small text-danger">
+                            Student Name should contain only characters and spaces!!
+                        </div>
                     </div>
                     <div class="form-group m-2">
                         <label for="studPhoto">Student Image Url:</label>
@@ -22,6 +33,9 @@
                             class="form-control" 
                             id="studPhoto"
                             formControlName="rsPhoto">
+                        <div *ngIf="myReactiveForm.get('personalData.rsPhoto')?.errors?.['required']" class="small text-danger">
+                            Student Image Url is Required!!
+                        </div>
                     </div>
                 </div>
                 <div class="form-group m-2">
@@ -30,6 +44,9 @@
                         <option>--select--</option>
                         <option *ngFor="let mark of allMark">{{ mark }}</option>
                     </select>
+                    <div *ngIf="myReactiveForm.get('rsMark')?.errors?.['required']" class="small text-danger">
+                        Student Total Mark is Required!!
+                    </div>
                 </div>
                 <div class="form-group m-2">
                     <label for="studDOB">Student DOB:</label>
@@ -38,6 +55,9 @@
                         class="form-control" 
                         id="studDOB"
                         formControlName="rsDob">
+                    <div *ngIf="myReactiveForm.get('rsDob')?.errors?.['required']" class="small text-danger">
+                        Student DOB is Required!!
+                    </div>
                 </div>
                 
                 <div class="form-check-online m-2">
@@ -52,6 +72,7 @@
             </div>
             <div class="card-footer bg-primary">
                 <button type="submit" class="btn btn-light text-primary">Update</button>
+                <button type="button" class="btn btn-light text-primary" (click)="addValidatorToName()">Add Validator to Name</button>
             </div>
         </div>
     </form>

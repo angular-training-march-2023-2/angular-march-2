@@ -48,17 +48,17 @@ export class StudentAddHttpComponent implements OnInit {
     }
 
     // now send this newStudent Object to the service layer to be inserted into db.json file
-    this.studentHttpService.addStudent(newStudent).subscribe({
-      next: (response)=>{
-        console.log(response);
-        // once the newStudent is added in db.json, we no longer have to stay here
-        // lets navigate back to student-list-http
-        this.router.navigate(['student-list-http']);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    })
+    // this.studentHttpService.addStudent(newStudent).subscribe({
+    //   next: (response)=>{
+    //     console.log(response);
+    //     // once the newStudent is added in db.json, we no longer have to stay here
+    //     // lets navigate back to student-list-http
+    //     this.router.navigate(['student-list-http']);
+    //   },
+    //   error: (err) => {
+    //     console.log(err);
+    //   }
+    // })
 
   }
 }

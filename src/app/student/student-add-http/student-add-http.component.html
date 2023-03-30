@@ -15,7 +15,20 @@
                             class="form-control" 
                             id="studName" 
                             ngModel
-                            name="sName" >
+                            name="sName" 
+                            required
+                            minlength="2"
+                            onlyText
+                            #myStudName="ngModel">
+                        <div *ngIf="myStudName.touched && myStudName.errors?.['required']" class="text-danger text-small">
+                            Student Name is required!
+                        </div>
+                        <div *ngIf="myStudName.touched && myStudName.errors?.['minlength']" class="text-danger text-small">
+                            Student name should be atleast 2 characters!
+                        </div>
+                        <div *ngIf="myStudName.touched && myStudName.errors?.['invalidText']" class="text-danger text-small">
+                            Student name should contain only characters!
+                        </div>
                     </div>
                     <div class="form-group m-2">
                         <label for="studPhoto">Student Image Url:</label>
@@ -24,16 +37,24 @@
                             class="form-control" 
                             id="studPhoto" 
                             ngModel
-                            name="sPhoto">
+                            name="sPhoto"
+                            required
+                            #myStudPhoto="ngModel">
+                        <div *ngIf="myStudPhoto.status=='INVALID' && myStudPhoto.touched" class="text-danger text-small">
+                            Student Image Url is required!
+                        </div>
                     </div>
                 </div>
                 
                 <div class="form-group m-2">
                     <label for="studMark">Student Total Marks:</label>
-                    <select class="form-control" id="studMark" ngModel name="sMark">
+                    <select class="form-control" id="studMark" ngModel name="sMark" required #myStudMark="ngModel"> 
                         <option>--select--</option>
                         <option *ngFor="let mark of allMark">{{ mark }}</option>
                     </select>
+                    <div *ngIf="myStudMark.status=='INVALID' && myStudMark.touched" class="text-danger text-small">
+                        Student Total Mark is required!
+                    </div>
                 </div>
                 <div class="form-group m-2">
                     <label for="studDOB">Student DOB:</label>
@@ -42,21 +63,26 @@
                         class="form-control" 
                         id="studDOB" 
                         ngModel
-                        name="sDOB">
+                        name="sDOB"
+                        required
+                        #myStudDob="ngModel">
+                    <div *ngIf="myStudDob.status=='INVALID' && myStudDob.touched" class="text-danger text-small">
+                        Student DOB is required!
+                    </div>
                 </div>
                 
                 <div class="form-check-online m-2">
                     Student Gender:
                     <span *ngFor="let gen of allGender">
                         <label class="form-check-label m-1">
-                            <input type="radio" class="form-check-input" ngModel name="sGender" [value]="gen.gender">
+                            <input type="radio" class="form-check-input" ngModel name="sGender" [value]="gen.gender" required>
                             {{ gen.gender }}
                         </label>
                     </span>
                 </div>
             </div>
             <div class="card-footer bg-success">
-                <button type="submit" class="btn btn-light text-success">Add</button>
+                <button type="submit" class="btn btn-light text-success" [disabled]="myForm.invalid">Add</button>
             </div>
         </div>
     </form>

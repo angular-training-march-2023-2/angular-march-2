@@ -28,6 +28,7 @@ import { RouteNotFoundComponent } from './route-not-found/route-not-found.compon
 import { StudentViewComponent } from './student/student-view/student-view.component';
 import { StudentAddHttpComponent } from './student/student-add-http/student-add-http.component';
 import { StudentEditHttpComponent } from './student/student-edit-http/student-edit-http.component';
+import { OnlyTextDirective } from './custom-validators/only-text.directive';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { StudentEditHttpComponent } from './student/student-edit-http/student-ed
     RouteNotFoundComponent,
     StudentViewComponent,
     StudentAddHttpComponent,
-    StudentEditHttpComponent
+    StudentEditHttpComponent,
+    OnlyTextDirective
    
   ],
   imports: [
