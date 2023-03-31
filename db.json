@@ -48,5 +48,22 @@
       "studentDOB": "2023-03-02",
       "studentGender": "Male"
     }
-  ]
+  ],
+  "users": [
+      {
+        "uName": "admin",
+        "uPassword": "admin",
+        "token": "dummy-token"
+      },
+      {
+        "uName": "abc",
+        "uPassword": "123",
+        "token": "dummy-token"
+      },
+      {
+        "uName": "lmn",
+        "uPassword": "456",
+        "token": "dummy-token"
+      }
+    ]
 }

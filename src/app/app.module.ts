@@ -29,6 +29,8 @@ import { StudentViewComponent } from './student/student-view/student-view.compon
 import { StudentAddHttpComponent } from './student/student-add-http/student-add-http.component';
 import { StudentEditHttpComponent } from './student/student-edit-http/student-edit-http.component';
 import { OnlyTextDirective } from './custom-validators/only-text.directive';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { OnlyTextDirective } from './custom-validators/only-text.directive';
     StudentViewComponent,
     StudentAddHttpComponent,
     StudentEditHttpComponent,
-    OnlyTextDirective
+    OnlyTextDirective,
+    UserLoginComponent,
+    LogoutComponent
    
   ],
   imports: [
