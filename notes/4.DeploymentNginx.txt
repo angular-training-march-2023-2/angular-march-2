@@ -1,0 +1,25 @@
+1. install nginx server
+2. in the nginx/conf/nginx.cong file of the server paste this fetchUserInfo
+
+server {
+ listen 6565;
+ server_name localhost;
+location / {
+ root html;
+ index index.html index.htm;
+ try_files $uri $uri/ /index.html;
+ }
+error_page 500 502 503 504 /50x.html;
+ location = /50x.html {
+ root html;
+ }
+ }
+
+ 3. build the angular application by running this command
+          ng build
+    this will create a folder called dist in your angular and your angular project will be bundled/converted to html, css, JS
+            and will be placed inside the dist folder
+
+4. copy the contents of dist/angular-march-2 into the html folder of nginx installation folder
+5. start the nginx server , by clicking nginx app in the nginx installation folder
+6. open a browser and type http://localhost:6565 and the angular application's index.html can be viewed
